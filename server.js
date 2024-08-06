@@ -9,6 +9,7 @@ import {
   removeProduct,
 } from "./controllers/product.js";
 import bodyParser from "body-parser";
+import { SingIn, SingUp } from "./controllers/user.js";
 
 // Khai báo sử dụng express
 const app = new express();
@@ -29,6 +30,8 @@ app.get("/product/:id", getOne);
 app.post("/product", createProduct);
 app.patch("/product/:id", updateProduct);
 app.delete("/product/:id", removeProduct);
+app.post("/login", SingIn);
+app.post("/register", SingUp);
 app.listen(port, () => {
   console.log(`Server đang chạy ở port http://localhost:3000/list`);
 });
